@@ -1,0 +1,20 @@
+version: "3"
+networks:
+    proxy:
+      external:
+        name: proxy
+
+services: 
+    filebrowser:
+        container_name: iso_filebrowser
+        image: iso_filebrowser
+        build: .
+        volumes: 
+            - /home/data-doscom/web-filebrowser/config:/config
+            - /home/data-doscom/iso:/repo
+        user: "${UID}:${GID}"
+        ports: 
+            - 5017:8080
+        restart: always
+        networks: 
+            - proxy
