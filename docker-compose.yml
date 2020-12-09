@@ -10,8 +10,8 @@ services:
         image: iso_filebrowser
         build: .
         volumes: 
-            - /home/data-doscom/web-filebrowser/config:/config
-            - /home/data-doscom/iso:/repo
+            - ./config:/config
+            - ./{your_data_in_host}:/repo
         user: "${UID}:${GID}"
         ports: 
             - 5017:8080
